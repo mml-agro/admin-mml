@@ -42,7 +42,7 @@
 
 
 
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react'
+import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react'
 import {
     getOrdersAPI,
     getProductsAPI,
@@ -78,6 +78,7 @@ export interface DeliveryAddress {
 }
 
 export interface Order {
+    total: number
     id: string
     orderNumber: string
     status: 'PENDING' | 'PROCESSING' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED' | 'RETURNED'
@@ -174,6 +175,8 @@ export interface Review {
 }
 
 export interface Notification {
+    time: ReactNode
+    type: any
     id: number
     title: string
     message: string

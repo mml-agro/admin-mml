@@ -21,7 +21,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 const Analytics: React.FC = () => {
   const { orders, customers, products } = useAdmin()
   const [period, setPeriod] = useState('7M')
-  const totalRevenue = orders.filter(o => o.status !== 'Cancelled' && o.status !== 'Refunded').reduce((s, o) => s + o.total, 0)
+  const totalRevenue = orders.filter(o => o.status !== 'CANCELLED' && o.status !== 'RETURNED').reduce((s, o) => s + o.total, 0)
 
   const kpis = [
     { label: 'Total Revenue', value: `₹${(totalRevenue / 100000).toFixed(2)}L`, change: '+12.4%', icon: DollarSign, color: 'from-brand-500 to-brand-700' },
